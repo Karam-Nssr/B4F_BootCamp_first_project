@@ -1,32 +1,47 @@
 import { useEffect, useState } from 'react'
-import { createContext } from 'react'
-import { base_url, users_url, } from '../../../core/end_points';
+import { base_url, my_posts_url, users_url, } from '../../../core/end_points';
 import { getData } from '../../../core/http_methods';
+import { useUser } from '../../userContext';
+import { useNavigate } from 'react-router'; 
+
 const Users = () => {
-    const UserContext = createContext();
-    const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
+  const { userIdProvider } = useUser(); 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await getData(base_url + users_url);
+        setUsers(response.data || response); 
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
     
-      useEffect(() => {
-        const fetchUsers = async () => {
-        try {
-            const response = await getData(base_url + users_url);
-            setUsers(response.data || response); 
-          } catch (error) {
-            console.error("Error fetching users:", error);
-          }
-        };
-        fetchUsers();
-        console.log(users);
-      }, []);
+    fetchUsers();
+  }, []);
+
+  const handleUserSelection = (id: number) => {
+    userIdProvider(id); 
+    navigate(`/${my_posts_url}`); 
+  };
+
   return (
     <>
       <ol>
-        {users.map((user) => (
-          <li key={user.id}><a href={`/users/${user.id}`}>{user.name}</a></li>
+        {users.map((user) => (   
+          <li 
+            key={user.id} 
+            onClick={() => handleUserSelection(user.id)}
+            style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
+          >
+            {user.name}
+          </li>
         ))}
       </ol>
     </>
   );
 }
 
-export default Users
+export default Users;

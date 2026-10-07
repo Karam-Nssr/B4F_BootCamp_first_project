@@ -3,7 +3,7 @@ import { getData } from "../../../core/http_methods.ts";
 import { base_url, posts_url } from "../../../core/end_points.ts";
 const Posts = () => {
   const [posts, setPosts] = useState([]);
-
+  
   useEffect(() => {
     const fetchPosts = async () => {
       try {
