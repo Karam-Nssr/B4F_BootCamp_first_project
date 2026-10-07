@@ -25,10 +25,10 @@ const Navbar = () => {
           <Link to={`/${posts_url}/:id`}>My Posts</Link>
         </li>
         <li>
-          <Link to={`/${my_todos_url}`}>My Todos</Link>
+          <Link to={`/${my_todos_url}/:id`}>My Todos</Link>
         </li>
         <li>
-          <Link to={`/${my_albums_url}`}>My Albums</Link>
+          <Link to={`/${my_albums_url}/:id`}>My Albums</Link>
         </li>
         </ul>
     </nav>

@@ -29,11 +29,11 @@ import MyTodos from './components/MyTodos/MyTodos.tsx'
     element:<MyPosts/>
   },
   {
-    path:"/"+my_todos_url,
+    path:"/"+my_todos_url+"/:id",
     element:<MyTodos/>
   },
    {
-    path:"/"+my_albums_url,
+    path:"/"+my_albums_url+"/:id",
     element:<MyAlbums/>
    },
   
