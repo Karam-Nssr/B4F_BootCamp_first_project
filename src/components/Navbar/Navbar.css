@@ -38,15 +38,11 @@
 
 .navbar-links a {
   display: block;
-
   padding: 10px 14px;
-
   text-decoration: none;
   color: white;
-
   font-size: 15px;
   border-radius: 5px;
-
   transition: background-color 0.2s;
 }
 
@@ -54,3 +50,9 @@
   background-color: #174a7e;
 }
 
+/* Add this rule for the active tab state */
+.navbar-links a.active {
+  background-color: #0d3c66; /* Darker shade to indicate it's active */
+  color: #fff;               /* Adjust text color if needed */
+  font-weight: bold;
+}

@@ -1,13 +1,6 @@
-import { Link } from 'react-router';
-import {
-  my_albums_url,
-  my_todos_url,
-  posts_url,
-  users_url
-} from '../../../core/end_points';
-
+import { NavLink } from 'react-router';
+import { my_albums_url, my_todos_url, posts_url, users_url } from '../../../core/end_points';
 import { useUser } from '../../userContext';
-
 import './Navbar.css';
 
 const Navbar = () => {
@@ -19,54 +12,42 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-
       <div className="navbar-logo">
-        <Link to="/">
-          App
-        </Link>
+        <NavLink to="/" end> 
+          App 
+        </NavLink>
       </div>
-
       <ul className="navbar-links">
-
         <li>
-          <Link
-            to={`/${users_url}`}
-            onClick={handleUsersClick}
-          >
+          <NavLink to={`/${users_url}`} onClick={handleUsersClick}>
             Users
-          </Link>
+          </NavLink>
         </li>
-
         <li>
-          <Link to={`/${posts_url}`}>
-            Posts
-          </Link>
+          <NavLink to={`/${posts_url}`} end> 
+            Posts 
+          </NavLink>
         </li>
-
         {currentId && (
           <>
             <li>
-              <Link to={`/${posts_url}/${currentId}`}>
-                My Posts
-              </Link>
+              <NavLink to={`/${posts_url}/${currentId}`}> 
+                My Posts 
+              </NavLink>
             </li>
-
             <li>
-              <Link to={`/${my_todos_url}/${currentId}`}>
-                My Todos
-              </Link>
+              <NavLink to={`/${my_todos_url}/${currentId}`}> 
+                My Todos 
+              </NavLink>
             </li>
-
             <li>
-              <Link to={`/${my_albums_url}/${currentId}`}>
-                My Albums
-              </Link>
+              <NavLink to={`/${my_albums_url}/${currentId}`}> 
+                My Albums 
+              </NavLink>
             </li>
           </>
         )}
-
       </ul>
-
     </nav>
   );
 };

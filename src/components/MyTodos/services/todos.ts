@@ -10,11 +10,12 @@ import {
   my_todos_url
 } from '../../../../core/end_points';
 
-import {
+import type {
   Todo,
   CreateTodoData,
   UpdateTodoData
 } from '../types/todo';
+
 
 export const getUserTodos = async (
   userId: number
@@ -27,6 +28,7 @@ export const getUserTodos = async (
   return response.data || response;
 };
 
+
 export const addTodo = async (
   userId: number,
   data: CreateTodoData
@@ -37,13 +39,13 @@ export const addTodo = async (
     {
       userId,
       title: data.title,
-      body: data.body,
       completed: false
     }
   );
 
   return response.data || response;
 };
+
 
 export const updateTodo = async (
   id: number,
@@ -57,6 +59,7 @@ export const updateTodo = async (
 
   return response.data || response;
 };
+
 
 export const deleteTodo = async (
   id: number

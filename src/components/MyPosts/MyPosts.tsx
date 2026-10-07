@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useUser } from '../../userContext';
 import { base_url, posts_url } from '../../../core/end_points';
 import { getData } from '../../../core/http_methods';
