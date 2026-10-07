@@ -1,0 +1,25 @@
+.posts-page {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 40px 60px;
+  box-sizing: border-box;
+
+  background-color: #f4f8fc;
+}
+
+.posts-page h1 {
+  margin: 0 0 25px;
+
+  color: #174a7e;
+  font-size: 28px;
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  width: 100%;
+}
+

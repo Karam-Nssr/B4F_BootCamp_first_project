@@ -3,6 +3,8 @@ import { useUser } from '../../userContext';
 import { base_url, posts_url } from '../../../core/end_points';
 import { getData } from '../../../core/http_methods';
 import Navbar from '../Navbar/Navbar';
+import PostCard from '../PostCard/PostCard';
+import './MyPosts.css';
 
 const MyPosts = () => {
   const { currentId } = useUser();
@@ -31,25 +33,29 @@ const MyPosts = () => {
   if (loading) return <h1>Loading posts...</h1>;
 
   return (
-    <>
+  <>
     <Navbar />
-    <div>
+
+    <div className="my-posts-page">
       <h1>User {currentId}'s Posts</h1>
+
       {posts.length === 0 ? (
         <p>This user hasn't posted anything yet.</p>
       ) : (
-        <ul>
+        <div className="posts-container">
           {posts.map((post: any) => (
-            <li key={post.id}>
-              <h3>{post.title}</h3>
-              <p>{post.body}</p>
-            </li>
+            <PostCard
+              key={post.id}
+              title={post.title}
+              body={post.body}
+              showActions={true}
+            />
           ))}
-        </ul>
+        </div>
       )}
     </div>
-    </>
-  )
+  </>
+);
 }
 
 export default MyPosts

@@ -1,0 +1,47 @@
+.post-card {
+  background-color: white;
+  border: 1px solid #e1eaf2;
+  border-radius: 8px;
+
+  padding: 20px;
+
+  box-shadow: 0 2px 6px rgba(23, 74, 126, 0.08);
+}
+
+.post-card h3 {
+  margin: 0 0 12px;
+
+  color: #174a7e;
+  font-size: 20px;
+}
+
+.post-card p {
+  margin: 0;
+
+  color: #555;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.post-card-actions {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.post-card-actions button {
+  padding: 8px 14px;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: #1769aa;
+  color: white;
+
+  cursor: pointer;
+}
+
+.post-card-actions button:hover {
+  background-color: #174a7e;
+}
