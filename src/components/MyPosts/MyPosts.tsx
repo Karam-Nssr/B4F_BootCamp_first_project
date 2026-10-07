@@ -15,7 +15,7 @@ const MyPosts = () => {
     const fetchUserPosts = async () => {
       try {
         setLoading(true);
-        const response = await getData(`${base_url}${posts_url}/${currentId}`);
+        const response = await getData(`${base_url}${posts_url}?userId=${currentId}`);
         setPosts(response.data || response);
       } catch (error) {
         console.error("Error fetching user posts:", error);
