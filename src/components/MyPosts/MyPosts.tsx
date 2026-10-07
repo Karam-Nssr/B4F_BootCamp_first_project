@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useUser } from '../../userContext';
-import { base_url, my_posts_url } from '../../../core/end_points';
+import { base_url, posts_url } from '../../../core/end_points';
 import { getData } from '../../../core/http_methods';
+import Navbar from '../Navbar/Navbar';
 
 const MyPosts = () => {
   const { currentId } = useUser();
@@ -14,7 +15,7 @@ const MyPosts = () => {
     const fetchUserPosts = async () => {
       try {
         setLoading(true);
-        const response = await getData(`${base_url}${my_posts_url}?userId=${currentId}`);
+        const response = await getData(`${base_url}${posts_url}/${currentId}`);
         setPosts(response.data || response);
       } catch (error) {
         console.error("Error fetching user posts:", error);
@@ -30,6 +31,8 @@ const MyPosts = () => {
   if (loading) return <h1>Loading posts...</h1>;
 
   return (
+    <>
+    <Navbar />
     <div>
       <h1>User {currentId}'s Posts</h1>
       {posts.length === 0 ? (
@@ -45,6 +48,7 @@ const MyPosts = () => {
         </ul>
       )}
     </div>
+    </>
   )
 }
 

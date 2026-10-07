@@ -6,8 +6,10 @@ import {createBrowserRouter, RouterProvider } from 'react-router'
 import Posts from './components/Posts/Posts.tsx'
 import { UserIdProvider } from './userContext.tsx'
 import Users from './components/Users/Users.tsx'
-import { my_posts_url, posts_url, users_url } from '../core/end_points.ts'
+import {my_todos_url, posts_url, my_albums_url, users_url } from '../core/end_points.ts'
 import MyPosts from './components/MyPosts/MyPosts.tsx'
+import MyAlbums from './components/MyAlbums/MyAlbums.tsx'
+import MyTodos from './components/MyTodos/MyTodos.tsx'
 
  const router=createBrowserRouter([
   {
@@ -23,17 +25,17 @@ import MyPosts from './components/MyPosts/MyPosts.tsx'
     element:<Users/>
   },
   {
-    path:"/"+my_posts_url,
+    path:"/"+posts_url+"/:id",
     element:<MyPosts/>
   },
-  // {
-  //   path:"/todos",
-  //   element:<Todos/>
-  // },
-  // {
-  //   path:"/albums",
-  //   element:<Albums/>
-  // },
+  {
+    path:"/"+my_todos_url,
+    element:<MyTodos/>
+  },
+   {
+    path:"/"+my_albums_url,
+    element:<MyAlbums/>
+   },
   
   // {
   //   path:"/posts/:id",

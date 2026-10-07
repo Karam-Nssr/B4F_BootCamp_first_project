@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { base_url, my_posts_url, users_url, } from '../../../core/end_points';
+import { base_url, posts_url, users_url, } from '../../../core/end_points';
 import { getData } from '../../../core/http_methods';
 import { useUser } from '../../userContext';
 import { useNavigate } from 'react-router'; 
@@ -18,13 +18,12 @@ const Users = () => {
         console.error("Error fetching users:", error);
       }
     };
-    
     fetchUsers();
   }, []);
 
   const handleUserSelection = (id: number) => {
     userIdProvider(id); 
-    navigate(`/${my_posts_url}`); 
+    navigate(`/${posts_url}/${id}`); 
   };
 
   return (
