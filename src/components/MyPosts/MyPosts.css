@@ -1,19 +1,62 @@
+
 .my-posts-page {
   width: 100%;
   min-height: 100vh;
-  padding: 40px 60px;
+  padding: 36px 5%;
   box-sizing: border-box;
+  background-color: #f5f8fc;
 }
 
 .my-posts-page h1 {
-  margin: 0 0 25px;
+  margin: 0 0 28px;
   color: #174a7e;
   font-size: 28px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .posts-container {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 22px;
   width: 100%;
+  margin: 0 auto;
+}
+
+.my-posts-page > p {
+  margin: 0;
+  padding: 22px;
+  background-color: #ffffff;
+  border: 1px solid #e1eaf2;
+  border-radius: 10px;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+@media (max-width: 768px) {
+  .my-posts-page {
+    padding: 26px 20px;
+  }
+
+  .my-posts-page h1 {
+    font-size: 24px;
+    margin-bottom: 22px;
+  }
+
+  .posts-container {
+    gap: 18px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .my-posts-page {
+    padding: 22px 14px;
+  }
+
+  .my-posts-page h1 {
+    font-size: 21px;
+  }
 }

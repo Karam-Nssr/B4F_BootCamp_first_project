@@ -31,7 +31,13 @@ const Posts = () => {
         <div className="posts-container">
           {" "}
           {posts.map((post: any) => (
-            <PostCard key={post.id} title={post.title} body={post.body} />
+            <PostCard
+              key={post.id}
+              postId={post.id}
+              title={post.title}
+              body={post.body}
+              canManageComments={false}
+            />
           ))}{" "}
         </div>{" "}
       </div>{" "}
